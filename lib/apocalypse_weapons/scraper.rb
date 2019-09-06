@@ -1,0 +1,5 @@
+class ApocalypseWeapons::Scraper 
+
+    
+end 
+

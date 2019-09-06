@@ -1,0 +1,2 @@
+class ApocalypseWeapons::Firearm  
+end 
