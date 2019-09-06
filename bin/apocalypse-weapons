@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby 
+
+
+require './lib/apocalypse_weapons' 
+ApocalypseWeapons::CLI.new.call
