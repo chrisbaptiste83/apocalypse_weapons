@@ -9,7 +9,7 @@ module ApocalypseWeapons
   # Your code goes here...
 end
  
-require_relative './apocalypse_weapons/cli' 
-require_relative './apocalypse_weapons/scraper' 
-require_relative './apocalypse_weapons/firearm' 
-require_relative './apocalypse_weapons/melee_weapon'
+require_relative '../lib/apocalypse_weapons/cli' 
+require_relative '../lib/apocalypse_weapons/scraper' 
+require_relative '../lib/apocalypse_weapons/firearm' 
+require_relative '../lib/apocalypse_weapons/melee_weapon'
