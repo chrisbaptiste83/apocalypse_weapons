@@ -4,8 +4,8 @@ class ApocalypseWeapons::CLI
         make_melee_weapons
 
         list_weapon_categories 
-        menu 
-        goodbye
+        main_menu 
+        
     end 
 
 def list_weapon_categories 
@@ -22,30 +22,43 @@ def make_melee_weapons
     ApocalypseWeapons::Scraper.scrape_melee_weapons
 end 
 
-def menu 
+def main_menu 
     
      input = nil
-     while input != "exit"   
+       
         puts "Enter a weapon category for a list of the best weapons or type exit to exit." 
-
+        input=nil 
         input = gets.strip.downcase 
-        case input 
-        when "1" 
-        puts "Here is a list of the top firearms for surviving a zombie apocalypse:"
-         ApocalypseWeapons::Firearm.list_firearms 
-        when "2" 
-        puts "here is a list of the best melee weapons for surviving a zombie apocalypse" 
-        ApocalypseWeapons::Melee_weapon.list_melee_weapons
+         
+        if input ==  "1" 
+       firearm_menu
+        elsif input == "2" 
+       melee_weapon_menu 
+
+        elsif input == "exit" 
+           goodbye
+        else
+            puts "Please enter a valid category or press exit" 
+            menu 
         end 
     end   
 
-    end 
+    
 
     def goodbye 
         puts "Goodbye. Good luck with the apocalypse" 
     end 
 
-    
+    def firearm_menu 
+        puts "Here is a list of the top firearms for surviving a zombie apocalypse:"
+        ApocalypseWeapons::Firearm.list_firearms 
+    end 
+
+    def melee_weapon_menu 
+        puts "here is a list of the best melee weapons for surviving a zombie apocalypse" 
+        ApocalypseWeapons::Melee_weapon.list_melee_weapons 
+    end 
+
 
 
 
