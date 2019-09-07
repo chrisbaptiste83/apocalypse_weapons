@@ -32,6 +32,12 @@ def menu
         puts "Goodbye. Good luck with the apocalypse" 
     end 
 
+    
+
+
+
+
+
 
 
 end 
