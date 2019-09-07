@@ -5,7 +5,6 @@ class ApocalypseWeapons::Firearm
     attr_accessor :description, :name 
 
     def initialize
-        
         @@all << self 
     end 
 
@@ -14,8 +13,8 @@ class ApocalypseWeapons::Firearm
    end  
 
 def self.list_firearms 
-    self.all.each_with_index(1) do |firearm, i|
-        puts "#{i}. #{firearm.name}" 
+    ApocalypseWeapons::Firearm.all.select do |firearm|
+        puts "#{firearm.name}"
     end 
 end 
        
