@@ -13,8 +13,8 @@ class ApocalypseWeapons::Firearm
    end  
 
 def self.list_firearms 
-    ApocalypseWeapons::Firearm.all.select do |firearm|
-        puts "#{firearm.name}"
+    ApocalypseWeapons::Firearm.all.map.with_index do |firearm, index|
+        puts "##{index+1} #{firearm.name}"
     end 
 end 
        

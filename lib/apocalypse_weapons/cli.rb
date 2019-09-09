@@ -1,18 +1,16 @@
 class ApocalypseWeapons::CLI 
-    def call  
-        make_firearms 
-        make_melee_weapons
 
-        list_weapon_categories 
+
+    def call 
+
+        make_firearms 
+        make_melee_weapons 
+        welcome_message
         main_menu 
-        
+
     end 
 
-def list_weapon_categories 
- puts "Caught in the middle of a zombie apocalypse and dont know what weapon to go for? Dont Panic!, here is a collection of the top firearms and meelee weapons for surviving a zombie apocalypse." 
- puts   "1. Firearms" 
- puts   "2. Melee Weapons" 
-end 
+
 
 def make_firearms 
     ApocalypseWeapons::Scraper.scrape_firearms
@@ -22,12 +20,19 @@ def make_melee_weapons
     ApocalypseWeapons::Scraper.scrape_melee_weapons
 end 
 
-def main_menu 
+def welcome_message 
+    puts "Don't get caught in the middle of a zombie apocalypse without a gameplan.Here is a collection of the top weapons that will help you survive a zombie apocalypse." 
+end 
+
+def main_menu
     
      input = nil
        
         puts "Enter a weapon category for a list of the best weapons or type exit to exit." 
-        
+        puts   "1. Firearms" 
+        puts   "2. Melee Weapons" 
+        puts ""
+
         input = gets.strip.downcase 
          
         if input ==  "1" 
@@ -54,7 +59,9 @@ def main_menu
         input = nil
 
         puts "Here is a list of the top firearms for surviving a zombie apocalypse:"  
+        puts""
         ApocalypseWeapons::Firearm.list_firearms 
+        puts ""
         puts "Select a weapon for info and reasons why this weapon will help you survive the apocalypse."
         
         input = gets.strip.to_i 
@@ -110,8 +117,10 @@ def main_menu
 
         input = nil
 
-        puts "Here is a list of the top firearmsmelee weapons for surviving a zombie apocalypse:"  
+        puts "Here is a list of the top melee weapons for surviving a zombie apocalypse:"  
+        puts ""
         ApocalypseWeapons::Melee_weapon.list_melee_weapons 
+        puts ""
         puts "Select a melee weapon for info and reasons why this weapon will help you survive the apocalypse."
         
         input = gets.strip.to_i 
@@ -120,9 +129,9 @@ def main_menu
          selected_melee_weapon = ApocalypseWeapons::Melee_weapon.find_melee_weapon(input) 
 
          print_melee_weapon_info(selected_melee_weapon) 
-         puts "Would you like to view another weapon? "
-         
 
+         puts "Would you like to view another weapon?"
+         
             input = gets.strip.downcase
             if input == "y"
             main_menu
@@ -135,12 +144,5 @@ def main_menu
             main_menu 
             end 
     end 
-
-
-
-
-
-
-
 
 end 
