@@ -44,7 +44,7 @@ def main_menu
            goodbye
         else
             puts "Please enter a valid category or press exit" 
-            menu 
+            main_menu 
         end 
     end   
 
@@ -58,7 +58,7 @@ def main_menu
 
         input = nil
 
-        puts "Here is a list of the best firearms for surviving a zombie apocalypse:"  
+        puts "Here is a list of the best firearms to have for surviving a zombie apocalypse:"  
         puts""
         ApocalypseWeapons::Firearm.list_firearms 
         puts ""
@@ -102,10 +102,8 @@ def main_menu
         puts ""
         puts "#{melee_weapon.name}"
         puts "" 
-        puts "Description"
         puts "#{melee_weapon.description}" 
         puts ""
-        puts "History"
         puts "#{melee_weapon.history}" 
 
     end 
@@ -117,7 +115,7 @@ def main_menu
 
         input = nil
 
-        puts "Here is a list of the top melee weapons forto have during zombie apocalypse:"  
+        puts "Here is a list of the top melee weapons to have during zombie apocalypse:"  
         puts ""
         ApocalypseWeapons::Melee_weapon.list_melee_weapons 
         puts ""
