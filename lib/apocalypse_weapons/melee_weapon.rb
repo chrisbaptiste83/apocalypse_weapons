@@ -1,5 +1,5 @@
 class ApocalypseWeapons::Melee_weapon  
-    attr_accessor :description, :history, :name 
+    attr_accessor :description, :history, :name, :url 
 
     @@all = [] 
 

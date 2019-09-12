@@ -22,6 +22,7 @@ end
 
 def welcome_message 
     puts "Don't get caught in the middle of a zombie apocalypse without a gameplan.Here is a collection of the top weapons to have when the apocalypse comes knocking on your door." 
+    puts ""
 end 
 
 def main_menu
@@ -94,6 +95,7 @@ def main_menu
         puts "" 
         puts "Description"
         puts "#{firearm.description}" 
+        puts ""
     end 
 
 
@@ -105,6 +107,9 @@ def main_menu
         puts "#{melee_weapon.description}" 
         puts ""
         puts "#{melee_weapon.history}" 
+        puts "" 
+        puts "Buy on amazon: #{melee_weapon.url}" 
+        puts ""
 
     end 
 
