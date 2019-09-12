@@ -4,6 +4,7 @@ class  ApocalypseWeapons::Scraper
     def self.get_firearms 
     @doc = Nokogiri::HTML(open("http://wezombie.com/zombie-weapons-top-ten-guns-for-the-zombie-war/"))
     @doc.css(".entry-content p").select.with_index { |_, idx| idx.odd? && idx <=19} 
+   
     end 
 
     def self.scrape_firearms 
@@ -11,7 +12,8 @@ class  ApocalypseWeapons::Scraper
         self.get_firearms.each do |gun| 
             gun1 = ApocalypseWeapons::Firearm.new 
             gun1.description = gun.text
-            gun1.name = gun.css("a[title]").text 
+            gun1.name = gun.css("a").text 
+            gun1.url = gun.css("@href")
              
         end 
        

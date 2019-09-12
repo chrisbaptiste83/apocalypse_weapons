@@ -2,7 +2,7 @@ class ApocalypseWeapons::Firearm
 
     @@all=[] 
 
-    attr_accessor :description, :name 
+    attr_accessor :description, :name, :url 
 
     def initialize
         @@all << self 

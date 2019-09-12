@@ -95,6 +95,9 @@ def main_menu
         puts "" 
         puts "Description"
         puts "#{firearm.description}" 
+        puts "" 
+        puts "More Info:"
+        puts "View #{firearm.name} on wikipedia: #{firearm.url}"
         puts ""
     end 
 
