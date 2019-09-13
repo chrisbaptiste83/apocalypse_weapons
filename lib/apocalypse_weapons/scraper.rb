@@ -8,15 +8,15 @@ class  ApocalypseWeapons::Scraper
     end 
 
     def self.scrape_firearms 
-
+    guns = []
         self.get_firearms.each do |gun| 
-            gun1 = ApocalypseWeapons::Firearm.new 
-            gun1.description = gun.text
-            gun1.name = gun.css("a").text 
-            gun1.url = gun.css("@href")
-             
+            gun_details = {}
+            gun_details[:description] = gun.text
+            gun_details[:name]= gun.css("a").text 
+            gun_details[:url] = gun.css("@href") 
+            guns << gun_details             
         end 
-       
+       guns
     end 
          
   
@@ -30,25 +30,24 @@ class  ApocalypseWeapons::Scraper
 
      def self.scrape_melee_weapons
        
-    self.get_melee_weapons.each_with_index do |m_weapon, index| 
+        self.get_melee_weapons.each_with_index do |m_weapon, index| 
          
         melee_weapon1 = ApocalypseWeapons::Melee_weapon.new 
         melee_weapon1.name = m_weapon.text 
-        if index <=4
+            if index <=4
         melee_weapon1.description = @doc2.css("h2+p+p+p")[index].text
         melee_weapon1.history = @doc2.css("h2+p+p")[index].text 
         melee_weapon1.url = @doc2.css("h2+p a")[index]["href"]  
-        elsif index >=6  
+            elsif index >=6  
         melee_weapon1.description = @doc2.css("h2+p+p+p")[(index-1)].text
         melee_weapon1.history = @doc2.css("h2+p+p")[index].text 
         melee_weapon1.url = @doc2.css("h2+p a")[index]["href"] 
-        else 
-        melee_weapon1.description = "Description: A rigid tactical knife for use in close quarters combat."   
+            else 
         melee_weapon1.history = @doc2.css("h2+p+p")[index].text 
         melee_weapon1.url = @doc2.css("h2+p a")[index]["href"] 
-        end 
+            end 
 
-    end 
+        end 
         
      end 
 

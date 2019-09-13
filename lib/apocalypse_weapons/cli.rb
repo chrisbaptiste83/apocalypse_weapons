@@ -13,7 +13,8 @@ class ApocalypseWeapons::CLI
 
 
 def make_firearms 
-    ApocalypseWeapons::Scraper.scrape_firearms
+    firearms_array = ApocalypseWeapons::Scraper.scrape_firearms 
+    ApocalypseWeapons::Firearm.create_from_collection(firearms_array)
 end 
 
 def make_melee_weapons 
@@ -21,7 +22,7 @@ def make_melee_weapons
 end 
 
 def welcome_message 
-    puts "Don't get caught in the middle of a zombie apocalypse without a gameplan.Here is a collection of the top weapons to have when the apocalypse comes knocking on your door." 
+    puts "Don't get caught in the middle of a zombie apocalypse without a gameplan.Here is a collection of the top weapons to have when the apocalypse comes knocking on your door."
     puts ""
 end 
 

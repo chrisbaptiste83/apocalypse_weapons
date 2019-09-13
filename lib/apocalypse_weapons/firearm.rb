@@ -4,9 +4,15 @@ class ApocalypseWeapons::Firearm
 
     attr_accessor :description, :name, :url 
 
-    def initialize
+    def initialize(firearm_hash) 
+        firearm_hash.each {|k,v| self.send(("#{k}="), v)}
         @@all << self 
     end 
+
+    def self.create_from_collection(firearm_array) 
+        firearm_array.each {|firearm_hash| self.new(firearm_hash)} 
+    end 
+
 
    def self.find_firearm(id) 
      self.all[id.to_i - 1] 
