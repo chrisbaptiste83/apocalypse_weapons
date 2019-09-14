@@ -9,7 +9,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["chrisbaptiste83@gmail.com"]
 
   spec.summary       = %q{"A gem for finding the right weapon during a zombie apocalypse"}
-  spec.description   = %q{"A ruby gem for finding the right melee weapon or firearm during a zombie apocalypse"}
+  spec.description   = %q{"A ruby gem for finding the right melee weapon or firearm during a zombie apocalypse"} 
+  spec.files         = ["lib/apocalypse_weapons.rb", "lib/apocalypse_weapons/cli.rb", "lib/apocalypse_weapons/scraper.rb", "lib/apocalypse_weapons/firearm.rb", "lib/apocalypse_weapons/melee_weapon.rb", "config/environment.rb"]
   spec.homepage      = "https://github.com/chrisbaptiste83/apocalypse_weapons.git"
   spec.license       = "MIT"
 
