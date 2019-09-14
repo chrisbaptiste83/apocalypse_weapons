@@ -8,13 +8,15 @@ class  ApocalypseWeapons::Scraper
     end 
 
     def self.scrape_firearms 
+
     guns = []
         self.get_firearms.each do |gun| 
             gun_details = {}
             gun_details[:description] = gun.text
             gun_details[:name]= gun.css("a").text 
             gun_details[:url] = gun.css("@href") 
-            guns << gun_details             
+            guns << gun_details    
+
         end 
        guns
     end 
@@ -24,31 +26,32 @@ class  ApocalypseWeapons::Scraper
      def self.get_melee_weapons     
         @doc2 =   Nokogiri::HTML(open("https://www.apocalypsesurvivalist.com/best-melee-weapons/"))   
         @doc2.css("h2").select.with_index { |_, idx| idx <=9 }
-    
+
      end 
 
 
      def self.scrape_melee_weapons
-       
+       melee_weapons =[]
         self.get_melee_weapons.each_with_index do |m_weapon, index| 
          
-        melee_weapon1 = ApocalypseWeapons::Melee_weapon.new 
-        melee_weapon1.name = m_weapon.text 
+        melee_weapon_details = {}
+        melee_weapon_details[:name] = m_weapon.text 
             if index <=4
-        melee_weapon1.description = @doc2.css("h2+p+p+p")[index].text
-        melee_weapon1.history = @doc2.css("h2+p+p")[index].text 
-        melee_weapon1.url = @doc2.css("h2+p a")[index]["href"]  
+        melee_weapon_details[:description] = @doc2.css("h2+p+p+p")[index].text
+        melee_weapon_details[:history]  = @doc2.css("h2+p+p")[index].text 
+        melee_weapon_details[:url] = @doc2.css("h2+p a")[index]["href"]  
             elsif index >=6  
-        melee_weapon1.description = @doc2.css("h2+p+p+p")[(index-1)].text
-        melee_weapon1.history = @doc2.css("h2+p+p")[index].text 
-        melee_weapon1.url = @doc2.css("h2+p a")[index]["href"] 
+        melee_weapon_details[:description] = @doc2.css("h2+p+p+p")[index-1].text
+        melee_weapon_details[:history]  = @doc2.css("h2+p+p")[index].text 
+        mmelee_weapon_details[:url] = @doc2.css("h2+p a")[index]["href"] 
             else 
-        melee_weapon1.history = @doc2.css("h2+p+p")[index].text 
-        melee_weapon1.url = @doc2.css("h2+p a")[index]["href"] 
+        melee_weapon_details[:description] = "A rigid shrp knife for use in close quarters combat"    
+        melee_weapon_details[:history]  = @doc2.css("h2+p+p")[index].text 
+        melee_weapon_details[:url]= @doc2.css("h2+p a")[index]["href"] 
             end 
-
+            melee_weapons << scrape_melee_weapons
         end 
-        
+        melee_weapons 
      end 
 
 
