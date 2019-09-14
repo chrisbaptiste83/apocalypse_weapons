@@ -18,7 +18,8 @@ def make_firearms
 end 
 
 def make_melee_weapons 
-    ApocalypseWeapons::Scraper.scrape_melee_weapons
+    melee_weapons_array = ApocalypseWeapons::Scraper.scrape_melee_weapons
+    ApocalypseWeapons::Melee_weapon.create_from_collection(melee_weapons_array)
 end 
 
 def welcome_message 
@@ -94,7 +95,7 @@ def main_menu
         puts ""
         puts "#{firearm.name}"
         puts "" 
-        puts "Description"
+        puts "Description:"
         puts "#{firearm.description}" 
         puts "" 
         puts "More Info:"
