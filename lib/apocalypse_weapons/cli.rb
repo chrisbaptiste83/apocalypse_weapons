@@ -65,27 +65,36 @@ def main_menu
         puts""
         ApocalypseWeapons::Firearm.list_firearms 
         puts ""
-        puts "Select a firearm for info and to see why it would be the ideal zombie-killing weapon during an apocalypse."
+        puts "Select a firearm for info and to see why it would be the ideal zombie-killing weapon on doomsday."
         
         input = gets.strip.to_i 
        
-         
+        if input >= 1 && input <=10 
          selected_firearm = ApocalypseWeapons::Firearm.find_firearm(input) 
-
          print_firearm_info(selected_firearm) 
-         puts "Would you like to view another weapon? "
-         
+         firearm_submenu 
+        else 
+        puts "That input is invalid. PLease enter a valid firearm number." 
+        firearm_menu 
+        end 
 
-            input = gets.strip.downcase
-            if input == "y"
-            main_menu
-            elsif input == "n"
-            puts ""
-            goodbye
-            else
-            puts ""
-            puts "I don't understand that answer."
-            main_menu 
+    end 
+
+     def firearm_submenu
+        input = nil
+         puts "Type 1 to view another firearm, 2 to view a melee weapon, or 3 to exit."
+         
+            input = gets.strip
+            if input == "1"
+             firearm_menu 
+            elsif input == "2" 
+            melee_weapon_menu
+            elsif input == "3" 
+            puts "" 
+            goodbye 
+            else 
+            puts "That input is invalid. PLease enter a valid response." 
+           firearm_submenu
             end 
 
     end 
@@ -101,7 +110,7 @@ def main_menu
         puts "More Info:"
         puts "View #{firearm.name} on wikipedia: #{firearm.url}"
         puts ""
-        
+
     end 
 
 
@@ -114,7 +123,7 @@ def main_menu
         puts ""
         puts "#{melee_weapon.history}" 
         puts "" 
-        puts "Buy on amazon: #{melee_weapon.url}" 
+        puts "Buy now from amazon: #{melee_weapon.url}" 
         puts ""
 
     end 
@@ -126,11 +135,11 @@ def main_menu
 
         input = nil
 
-        puts "Here is a list of the top melee weapons to have during zombie apocalypse:"  
+        puts "Here is a list of the top melee weapons to have during a zombie apocalypse:"  
         puts ""
         ApocalypseWeapons::Melee_weapon.list_melee_weapons 
         puts ""
-        puts "Select a melee weapon for info and to see why it would be the ideal zombie-killing melee weapon during an apocalypse."
+        puts "Select a melee weapon for info and to see why it would be the ideal zombie-killing melee weapon on doomsday."
         
         input = gets.strip.to_i 
        
@@ -139,10 +148,8 @@ def main_menu
          print_melee_weapon_info(selected_melee_weapon) 
          melee_weapon_submenu 
             else 
-         puts "That input is invalid.PLease enter a valid melee weapon number." 
+         puts "That input is invalid. PLease enter a valid melee weapon number." 
          melee_weapon_menu 
-
-        
             end 
         end 
 
@@ -159,7 +166,7 @@ def main_menu
             puts "" 
             goodbye 
             else 
-            puts "That input is invalid.PLease enter a valid response." 
+            puts "That input is invalid. PLease enter a valid response." 
             melee_weapon_submenu
             end 
     end 
