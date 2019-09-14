@@ -45,8 +45,8 @@ class  ApocalypseWeapons::Scraper
         melee_weapon_details[:history]  = @doc2.css("h2+p+p")[index].text 
         melee_weapon_details[:url] = @doc2.css("h2+p a")[index]["href"] 
             else 
-        melee_weapon_details[:description] = "A rigid sharp knife for use in close quarters combat"    
-        melee_weapon_details[:history]  = @doc2.css("h2+p+p")[index].text 
+        melee_weapon_details[:description] = "#{@doc2.css("h2+p+p")[index].text.strip.split( '.' )[7..8].join(".").to_s}."   
+        melee_weapon_details[:history]  = "History: #{@doc2.css("h2+p+p")[index].text.strip.split( '.' )[1..6].join(".").to_s}."
         melee_weapon_details[:url]= @doc2.css("h2+p a")[index]["href"] 
             end 
             melee_weapons << melee_weapon_details
