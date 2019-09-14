@@ -101,6 +101,7 @@ def main_menu
         puts "More Info:"
         puts "View #{firearm.name} on wikipedia: #{firearm.url}"
         puts ""
+        
     end 
 
 
@@ -133,23 +134,33 @@ def main_menu
         
         input = gets.strip.to_i 
        
-         
+            if input >= 1 && input <=10
          selected_melee_weapon = ApocalypseWeapons::Melee_weapon.find_melee_weapon(input) 
-
          print_melee_weapon_info(selected_melee_weapon) 
+         melee_weapon_submenu 
+            else 
+         puts "That input is invalid.PLease enter a valid melee weapon number." 
+         melee_weapon_menu 
 
-         puts "Would you like to view another weapon?"
+        
+            end 
+        end 
+
+        def melee_weapon_submenu
+        input = nil
+         puts "Type 1 to view another melee weapon, 2 to view a firearm, or 3 to exit."
          
-            input = gets.strip.downcase
-            if input == "y"
-            main_menu
-            elsif input == "n"
-            puts ""
-            goodbye
-            else
-            puts ""
-            puts "I don't understand that answer."
-            main_menu 
+            input = gets.strip
+            if input == "1"
+            melee_weapon_menu 
+            elsif input == "2" 
+            firearm_menu 
+            elsif input == "3" 
+            puts "" 
+            goodbye 
+            else 
+            puts "That input is invalid.PLease enter a valid response." 
+            melee_weapon_submenu
             end 
     end 
 
