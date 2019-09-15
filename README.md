@@ -8,7 +8,7 @@ $ gem install apocalypse_weapons
 
 Usage
 
-Run wint ./bin/apocalypse-weapons and follow the on screen prompts.
+Run  ./bin/apocalypse-weapons and follow the on screen prompts.
 
 Development
 
