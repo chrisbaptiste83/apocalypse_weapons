@@ -23,6 +23,7 @@ def make_melee_weapons
 end 
 
 def welcome_message 
+    puts ""
     puts "Don't get caught in the middle of a zombie apocalypse without a gameplan.Here is a collection of the top weapons to have when the apocalypse comes knocking on your door."
     puts ""
 end 
@@ -30,8 +31,9 @@ end
 def main_menu
     
      input = nil
-       
+        puts ""
         puts "Enter a weapon category for a list of the best apocalypse weapons or type exit to exit." 
+        puts ""
         puts   "1. Firearms" 
         puts   "2. Melee Weapons" 
         puts ""
@@ -61,7 +63,7 @@ def main_menu
 
         input = nil
 
-        puts "Here is a list of the best firearms to have for surviving a zombie apocalypse:"  
+        puts "Here is a list of the top firearms that will increase your chances of survival during a zombie apocalypse:"  
         puts""
         ApocalypseWeapons::Firearm.list_firearms 
         puts ""
@@ -135,7 +137,7 @@ def main_menu
 
         input = nil
 
-        puts "Here is a list of the top melee weapons to have during a zombie apocalypse:"  
+        puts "Here is a list of the best melee weapons to have in case you ever have to go toe to toe with a zombie during an apocalypse: "    
         puts ""
         ApocalypseWeapons::Melee_weapon.list_melee_weapons 
         puts ""
