@@ -30,7 +30,7 @@ end
 
 def main_menu
     
-     input = nil
+     
         puts ""
         puts "Enter a weapon category for a list of the best apocalypse weapons or type exit to exit." 
         puts ""
@@ -39,13 +39,13 @@ def main_menu
         puts ""
 
         input = gets.strip.downcase 
-         
-        if input ==  "1" 
-       firearm_menu
-        elsif input == "2" 
-       melee_weapon_menu 
+         case input
+         when  "1" 
+            firearm_menu
+         when  "2" 
+             melee_weapon_menu 
 
-        elsif input == "exit" 
+         when "exit" 
            goodbye
         else
             puts "Please enter a valid category or press exit" 
@@ -61,7 +61,7 @@ def main_menu
 
     def firearm_menu 
 
-        input = nil
+        
 
         puts "Here is a list of the top firearms that will increase your chances of survival during a zombie apocalypse:"  
         puts""
@@ -83,7 +83,7 @@ def main_menu
     end 
 
      def firearm_submenu
-        input = nil
+        
          puts "Type 1 to view another firearm, 2 to view a melee weapon, or 3 to exit."
          
             input = gets.strip
