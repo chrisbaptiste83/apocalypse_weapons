@@ -1,25 +1,75 @@
-Apocalypse Weapons 
+# Apocalypse Weapons
 
-Welcome to the zombie apocalypse weapons gem. This gem provides a user with a collection of the ideal weapons for somebody to possess during a zombie apocalypse. Weapons are grouped into two categories, firearms and melee weapons. A user can select to view a weapons list based on a specific category, and then select a weapon to view further information on. The information that a user can view about a selected weapon includes a name and description. Additionally, a user can view a bit of history about melee weapons, is provided with a link to view further information on every firearm upon selection, and is also provided with a link to buy the selected melee weapon from amazon.
+A Ruby CLI gem that helps you prepare for the zombie apocalypse by presenting the top 10 firearms and melee weapons you'll want on hand when doomsday arrives.
 
- Installation
+## Features
 
-$ gem install apocalypse_weapons
+- Browse the **top 10 firearms** recommended for zombie survival — with descriptions and Wikipedia links
+- Browse the **top 10 melee weapons** — with history, descriptions, and purchase links
+- Interactive menu-driven CLI — no GUI required, just your terminal and your survival instincts
 
-Usage
+## Demo
 
-Run  ./bin/apocalypse-weapons and follow the on screen prompts.
+```
+$ ./bin/apocalypse-weapons
 
-Development
+Don't get caught in the middle of a zombie apocalypse without a gameplan.
+Here is a collection of the top weapons to have when the apocalypse comes knocking on your door.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Enter a weapon category for a list of the best apocalypse weapons or type exit to exit.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+1. Firearms
+2. Melee Weapons
+```
 
-Contributing
+## Installation
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/apocalypse_weapons.
+**Prerequisites:** Ruby 2.x+, Bundler
 
- License
+```bash
+git clone https://github.com/chrisbaptiste83/apocalypse_weapons.git
+cd apocalypse_weapons
+bundle install
+```
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+## Usage
+
+```bash
+./bin/apocalypse-weapons
+```
+
+Navigate the menu by entering the number of the category you want to explore, then select a specific weapon to see its full description and details.
+
+## How It Works
+
+The app uses [Nokogiri](https://nokogiri.org/) to scrape live weapon data from the web at runtime, building a local collection of `Firearm` and `Melee_weapon` objects. The CLI layer drives navigation through a simple `gets`-based input loop.
+
+**Class structure:**
+
+| Class | Responsibility |
+|---|---|
+| `CLI` | Drives the interactive menu |
+| `Scraper` | Fetches and parses weapon data from web sources |
+| `Firearm` | Stores firearm name, description, and Wikipedia URL |
+| `Melee_weapon` | Stores melee weapon name, description, history, and Amazon URL |
+
+## Tech Stack
+
+- **Ruby** — core language
+- **Nokogiri** — HTML scraping
+- **RSpec** — testing
+- **Travis CI** — continuous integration
+
+## Running Tests
+
+```bash
+bundle exec rspec
+```
+
+## Project Background
+
+Built as a CLI project at [Flatiron School](https://flatironschool.com/) to practice Ruby OOP, web scraping, and building gem-style applications.
+
+## License
+
+This project is available under the [MIT License](LICENSE.txt).
