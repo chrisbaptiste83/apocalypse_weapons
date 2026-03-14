@@ -1,8 +1,9 @@
+require 'open-uri'
 
 class  ApocalypseWeapons::Scraper
   
     def self.get_firearms 
-    @doc = Nokogiri::HTML(open("http://wezombie.com/zombie-weapons-top-ten-guns-for-the-zombie-war/"))
+    @doc = Nokogiri::HTML(URI.open("http://wezombie.com/zombie-weapons-top-ten-guns-for-the-zombie-war/"))
     @doc.css(".entry-content p").select.with_index { |_, idx| idx.odd? && idx <=19} 
    
     end 
@@ -24,7 +25,7 @@ class  ApocalypseWeapons::Scraper
     
      def self.get_melee_weapons 
 
-        @doc2 =   Nokogiri::HTML(open("https://www.apocalypsesurvivalist.com/best-melee-weapons/"))   
+        @doc2 =   Nokogiri::HTML(URI.open("https://www.apocalypsesurvivalist.com/best-melee-weapons/"))   
         @doc2.css("h2").select.with_index { |_, idx| idx <=9 }
 
      end 
@@ -58,6 +59,4 @@ class  ApocalypseWeapons::Scraper
     
 
 
-    end 
-    
-
+    end
