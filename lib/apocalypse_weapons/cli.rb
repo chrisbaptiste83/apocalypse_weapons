@@ -24,7 +24,7 @@ end
 
 def welcome_message 
     puts ""
-    puts "Don't get caught in the middle of a zombie apocalypse without a gameplan.Here is a collection of the top weapons to have when the apocalypse comes knocking on your door."
+    puts "Don't get caught in the middle of a zombie apocalypse without a gameplan. Here is a collection of the top weapons to have when the apocalypse comes knocking on your door."
     puts ""
 end 
 
@@ -48,7 +48,7 @@ def main_menu
          when "exit" 
            goodbye
         else
-            puts "Please enter a valid category or press exit" 
+            puts "Please enter a valid category or type exit to quit." 
             main_menu 
         end 
     end   
@@ -56,7 +56,7 @@ def main_menu
     
 
     def goodbye 
-        puts "Goodbye. Good luck with the apocalypse" 
+        puts "Goodbye. Good luck with the apocalypse." 
     end 
 
     def firearm_menu 
@@ -76,7 +76,7 @@ def main_menu
          print_firearm_info(selected_firearm) 
          firearm_submenu 
         else 
-        puts "That input is invalid. PLease enter a valid firearm number." 
+        puts "That input is invalid. Please enter a valid firearm number." 
         firearm_menu 
         end 
 
@@ -95,7 +95,7 @@ def main_menu
             puts "" 
             goodbye 
             else 
-            puts "That input is invalid. PLease enter a valid response." 
+            puts "That input is invalid. Please enter a valid response." 
            firearm_submenu
             end 
 
@@ -110,7 +110,7 @@ def main_menu
         puts "#{firearm.description}" 
         puts "" 
         puts "More Info:"
-        puts "View #{firearm.name} on wikipedia: #{firearm.url}"
+        puts "View #{firearm.name} on Wikipedia: #{firearm.url}"
         puts ""
 
     end 
@@ -125,7 +125,7 @@ def main_menu
         puts ""
         puts "#{melee_weapon.history}" 
         puts "" 
-        puts "Buy now from amazon: #{melee_weapon.url}" 
+        puts "Buy now from Amazon: #{melee_weapon.url}" 
         puts ""
 
     end 
@@ -150,7 +150,7 @@ def main_menu
          print_melee_weapon_info(selected_melee_weapon) 
          melee_weapon_submenu 
             else 
-         puts "That input is invalid. PLease enter a valid melee weapon number." 
+         puts "That input is invalid. Please enter a valid melee weapon number." 
          melee_weapon_menu 
             end 
         end 
@@ -168,7 +168,7 @@ def main_menu
             puts "" 
             goodbye 
             else 
-            puts "That input is invalid. PLease enter a valid response." 
+            puts "That input is invalid. Please enter a valid response." 
             melee_weapon_submenu
             end 
     end 
