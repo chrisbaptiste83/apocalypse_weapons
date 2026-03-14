@@ -15,11 +15,11 @@ class ApocalypseWeapons::Melee_weapon
 
     def self.find_melee_weapon(id) 
         self.all[id.to_i - 1] 
-      end  
+    end  
    
-   def self.list_melee_weapons  
-        ApocalypseWeapons::Melee_weapon.all.select do |melee_weapon|
-            puts "#{melee_weapon.name}"
+    def self.list_melee_weapons  
+        ApocalypseWeapons::Melee_weapon.all.each_with_index do |melee_weapon, index|
+            puts "##{index + 1} #{melee_weapon.name}"
         end 
     end 
 
@@ -27,4 +27,4 @@ class ApocalypseWeapons::Melee_weapon
         @@all 
     end 
 
-end 
+end
